@@ -1,0 +1,48 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<style>
+
+</style>
+
+<div id="app">
+    <p>{{contador}}</p>
+    <button v-on:click="somar"> Somar 1</button>
+    <button v-on:click="somar5(5)"> Somar 5</button>
+    <p v-on:mousemove="atualizar">Mouse: {{x}} e {{y}}
+        <span v-on:mousemove="parar">PARAR AQUI!!!!</span>
+    </p>
+    <input type="text" v-on:keyup.enter="exibirAlerta">
+    <hr>
+    <button v-on:click="exibirAlerta">ALerta</button>
+    <!-- <input type="text" v-on:keyup="$event valor."> -->
+</div>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            contador:0,
+            x:0,
+            y:0,
+            valor:'',
+        },
+        methods:{
+            somar(){
+                this.contador++
+            },
+            somar5(a){
+                this.contador += a
+            },
+            atualizar(e){
+                this.x = e.clientX
+                this.y = e.clientY
+            },
+            exibirAlerta(){
+                alert('alerta')
+            },
+            parar(e){
+                e.stopPropagation()
+            }
+        }
+    })
+</script>

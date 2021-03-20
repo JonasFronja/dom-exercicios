@@ -1,0 +1,22 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="desafio">
+    <p>{{nome}} ({{idade}})</p>
+    <p>{{nome}} ({{idade * 3}})</p>
+    <p>{{Math.random()}}</p>
+    <input type="text" v-bind:value='nome'>
+</div>
+
+<script>
+        new Vue({
+            el:'#desafio',
+            data:{
+                nome:"Jonas Fronja",
+                idade:"22",
+                image:''
+            },
+            methods:{
+                
+            }
+        })
+    </script>
